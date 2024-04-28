@@ -1,0 +1,256 @@
+body{
+    background-color:rgb(86, 125, 70);
+}
+h2{
+    font-family: "Fredericka the Great",serif;
+    font-size: 20px;
+}
+h3{
+    font-family: "Fredericka the Great",serif;
+    font-size: 16px;
+}
+
+#gameboard {
+    height: 600px;
+    width: 600px;
+    margin: 60px;
+    overflow: hidden;
+    position: relative;
+    cursor: url('img/BaseBallpointer.png'), crosshair;
+    background-image: url('img/Background.png');
+}
+
+#gameboard:active {
+    cursor: url(), crosshair;
+}
+
+#object1 {
+    position: absolute;
+    transition: 1s;
+    left: 60px;
+    top: 450px;
+    transition: 1s;
+    animation-name: lpath;
+    animation-duration: 4s;
+    animation-play-state: paused;
+    animation-iteration-count:infinite;
+}
+
+#object1:hover {
+    opacity:.05;
+}
+
+#object2{
+    position: absolute;
+    transition: 1s;
+    left: 270px;
+    top: 450px;
+    transition: 1s;
+    animation-name: cpath;
+    animation-duration: 5s;
+    animation-play-state: paused;
+    animation-iteration-count:infinite;
+}
+
+#object2:hover {
+    opacity:.2;
+}
+
+#object3 {
+    position: absolute;
+    transition: 1s;
+    left: 480px;
+    top: 450px;
+    transition: 1s;
+    animation-name: bpath;
+    animation-duration: 6s;
+    animation-play-state: paused;
+    animation-iteration-count:infinite;
+}
+
+#object3:hover {
+    opacity:.2;
+}
+
+#boxes {
+    position: absolute;
+    width: 200px;
+    left: 200px;
+    top: 0px;
+    clip-path: polygon(20% 0%, 78% 0, 100% 100%, 0% 100%);
+}
+
+#score {
+    height:120px;
+    width:250px;
+    position:fixed;
+    top: 200px;
+    left: 725px;
+    padding: 1px 20px;
+    color: white;
+    font-size:1em;
+    background-color: rgb(37, 26, 19);
+    border-radius: 40px;
+    font-family: helvetica;
+}
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    position: fixed;
+    top: 195px;
+    left:995px;
+    border-top: 65px solid transparent;
+    border-bottom: 75px solid transparent; 
+    
+    border-right:75px solid whitesmoke; 
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0;
+    position: fixed;
+    top: 195px;
+    left: 675px;
+    border-top: 65px solid transparent;
+    border-bottom: 75px solid transparent;
+    
+    border-left: 75px solid whitesmoke;
+}
+
+.arrow-left2 {
+    width: 0; 
+    height: 0; 
+    position: fixed;
+    top: 370px;
+    left:995px;
+    border-top: 65px solid transparent;
+    border-bottom: 75px solid transparent; 
+    
+    border-right:75px solid whitesmoke; 
+}
+
+.arrow-right2 {
+    width: 0; 
+    height: 0;
+    position: fixed;
+    top: 370px;
+    left: 675px;
+    border-top: 65px solid transparent;
+    border-bottom: 75px solid transparent;
+    
+    border-left: 75px solid whitesmoke;
+}
+
+
+#Timer {
+    height: 120px;
+    width: 250px;
+    position: absolute;
+    left: 725px;
+    top: 375px;
+    padding: 1px 20px;
+    color: white;
+    font-size:1em;
+    background-color: rgb(37, 26, 19);
+    border-radius: 40px;
+    font-family: helvetica;
+}
+
+
+#timerDisplay{
+    font-family: "Orbitron", ariel, sans-serif;
+    font-size: 30px;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+}
+
+#endScreen {
+  background-image: url('img/endscreen.png');
+  width: 600px;
+  height: 600px;
+  top: 60px;
+  left: 68px;
+  position: absolute;
+  display: none;
+}
+
+#pauseScreen {
+    background-image: url('img/endscreen.png');
+    width: 600px;
+    height: 600px;
+    top: 60px;
+    left: 68px;
+    position: absolute;
+    display: none;
+}
+
+@keyframes lpath {
+    0% {margin-left: 175px; margin-top: 10px;}
+    10% {margin-top: -120px;}
+    20% {margin-top: -120px;}
+    30% {margin-top: -240px; margin-left: 25px;}
+    40% {margin-top: -360px; margin-left: 50px;}
+    50% {margin-top: -360px; margin-left: 175px;}
+    60% {margin-top: -120px;}
+    70% {margin-top: -60px;}
+    80% {margin-top:-60px;}
+    90% {margin-top: 0px;}
+    100% {margin-left: 175px; margin-top: 10px;}
+}
+
+@keyframes lpath2 {
+    0% {margin-left: 175px; margin-top: 10px;}
+    10% {margin-top: -120px;}
+    20% {margin-top: -120px;}
+    30% {margin-top: -240px; margin-left: 25px;}
+    40% {margin-top: -360px; margin-left: 50px;}
+    50% {margin-top: -360px; margin-left: 175px;}
+    60% {margin-top: -120px;}
+    70% {margin-top: -60px;}
+    80% {margin-top:-60px;}
+    90% {margin-top: 0px;}
+    100% {margin-left: 175px; margin-top: 10px;}
+}
+
+@keyframes cpath {
+    0% {margin-left: -5px; margin-top: -300px;}
+    10% {margin-left: -270px;}
+    20% {margin-top: -120px;}
+    30% {margin-top: -240px; margin-left: 25px;}
+    40% {margin-top: -300px; margin-left: -5px;}
+    50% {margin-top: -100px; margin-left: 175px;}
+    60% {margin-top: -200px; margin-left: 150px;}
+    70% {margin-top: -250px; margin-left: 200px;}
+    80% {margin-top:-350px; margin-left: 175px;}
+    90% {margin-top: 0px;}
+    100% {margin-left: -5px; margin-top: 300px;}
+}
+
+@keyframes cpath2 {
+    0% {margin-left: -5px; margin-top: -300px;}
+    10% {margin-left: -300px;}
+    20% {margin-top: -120px;}
+    30% {margin-top: -240px; margin-left: 25px;}
+    40% {margin-top: -300px; margin-left: -5px;}
+    50% {margin-top: -100px; margin-left: 175px;}
+    60% {margin-top: -200px; margin-left: 150px;}
+    70% {margin-top: -250px; margin-left: 200px;}
+    80% {margin-top:-350px; margin-left: 175px;}
+    90% {margin-top: 0px;}
+    100% {margin-left: -5px; margin-top: 300px;}
+}
+
+@keyframes bpath {
+    0% {margin-left: -225px; margin-top: -400px;}
+    10% {margin-left: -450px;}
+    20% {margin-top: -500px;}
+    30% {margin-left: 25px;}
+    40% {margin-top: -450px; margin-left: -350px;}
+    50% {margin-top: -400px; margin-left: 10px;}
+    60% {margin-top: -300px; margin-left: -325px;}
+    70% {margin-top: -250px; margin-left: -300px;}
+    80% {margin-top:-150px; margin-left: 20px;}
+    90% {margin-top: -10px; margin-left: 15px;}
+    100% {margin-left: -255px; margin-top: -400px;}
+}

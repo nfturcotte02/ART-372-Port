@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turcotte 372 Portfolio</title>
+    <link href ="landscape.css"  media="all and (orientation:landscape)" rel="stylesheet" type="text/css">
+    <link href ="portrait.css"  media="all and (orientation:portrait)" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Prata&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        
+        <div id="header">
+        <h1> Noah Turcotte </h1>
+        <h2> Art 372 Portfolio</h2>
+        <h4> Hello! My name is Noah Turcotte, I'm am a student at West Virginia University majoring in Game Design and Interactive Media. This page serves as a gallery of my work for Art 372 - Interactive Design. Each project completed in this course is accessable from this webpage by clicking on the images below. Hover over each image to get a description of each project.</h4>
+        </div>
+        <div class="arrow-left"></div>
+        <div class="cube-left"></div>
+        <div id="projects">
+        <center>
+        </center>
+        <a href="TURCOTTE_372_1/index.html" target="_blacnk">
+            <img id ="first" src="img/SThumbBandW.png">
+        </a>
+        <a href="TURCOTTE_372_a2/index.html" target="_blacnk">
+            <img id ="second" src="img/CThumbBandW.png">
+        </a>
+        <a href="TURCOTTE_a3/index.html" target="_blacnk">
+            <img id ="third" src="img/PThumbBandW.png">
+        </a>
+        <a href="TURCOTTE_372_a5/index.html" target="_blacnk">
+            <img id ="fourth" src="img/RThumbBandW.png">
+        </a>
+        <a href="TURCOTTE_372_a6/index.html" target="_blacnk">
+            <img id ="fifth" src="img/BThumbBandW.png">
+        </a>
+        <div class="i1">
+        <p> To understand the basics of webdesign, a simple webpage feature a story that followed the hero's journey was constructed. This particular narrative revolves around a package being delivered to the wrong address. </p>
+        </div>
+        <div class="i2">
+        <p> Cartoon Characters were put through the wringer, as trashy clickbate articles meaning to soil their name were written about them. The cast of chowder is exposed in these headlines, the only way to figure out the truth is to click this image!  </p>
+        </div>
+        <div class="i3">
+        <p> Whack a What? Using html,css code, and javascript, a simple arcade style whack a mole game was developed. In this game, the player is tasked with hitting as many pinatas as they can before time runs out. Watch out for the bee hives!  </p>
+        </div>
+        <div class="i4">
+        <p> Using Jquery, an interactive webpage was created exploring a form of analog technology. Watch the Rockem Sockem Robots fight while learning some facts about the game in the process.  </p>
+        </div>
+        <div class="i5">
+        <p> This project was created in conjuction with ChatGPT, the task was to have an ai chat bot create a canvas based game while a design was created integrating the canvas into a visually interesting webpage. </p>
+        </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#first').hover(
+                function() {
+                    $('.arrow-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-bottom-color', 'purple');
+                },
+                function() {
+                    $('.arrow-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-bottom-color', 'indigo');
+                }
+            );
+        });
+        $(document).ready(function() {
+            $('#second').hover(
+                function() {
+                    $('.arrow-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-bottom-color', 'purple');
+                },
+                function() {
+                    $('.arrow-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-bottom-color', 'indigo');
+                }
+            );
+        });
+        $(document).ready(function() {
+            $('#third').hover(
+                function() {
+                    $('.arrow-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-bottom-color', 'purple');
+                },
+                function() {
+                    $('.arrow-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-bottom-color', 'indigo');
+                }
+            );
+        });
+        $(document).ready(function() {
+            $('#fourth').hover(
+                function() {
+                    $('.arrow-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-bottom-color', 'purple');
+                },
+                function() {
+                    $('.arrow-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-bottom-color', 'indigo');
+                }
+            );
+        });
+        $(document).ready(function() {
+            $('#fifth').hover(
+                function() {
+                    $('.arrow-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-left-color', 'purple');
+                    $('.cube-left').css('border-bottom-color', 'purple');
+                },
+                function() {
+                    $('.arrow-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-left-color', 'indigo');
+                    $('.cube-left').css('border-bottom-color', 'indigo');
+                }
+            );
+        });
+        $('#first').hover(function() {
+            $('.i1').show();
+            $('.i2').hide();
+            $('.i3').hide();
+            $('.i4').hide();
+            $('.i5').hide();
+        });
+        $('#second').hover(function() {
+            $('.i2').show();
+            $('.i1').hide();
+            $('.i3').hide();
+            $('.i4').hide();
+            $('.i5').hide();
+        });
+        $('#third').hover(function() {
+            $('.i3').show();
+            $('.i2').hide();
+            $('.i1').hide();
+            $('.i4').hide();
+            $('.i5').hide();
+        });
+        $('#fourth').hover(function() {
+            $('.i4').show();
+            $('.i2').hide();
+            $('.i3').hide();
+            $('.i1').hide();
+            $('.i5').hide();
+        });
+        $('#fifth').hover(function() {
+            $('.i5').show();
+            $('.i2').hide();
+            $('.i3').hide();
+            $('.i4').hide();
+            $('.i1').hide();
+        });
+    </script>
+</body>
+</html>

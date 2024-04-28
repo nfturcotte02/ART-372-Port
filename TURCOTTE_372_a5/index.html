@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Rockem Sockem Robots </title>
+<link href ="landscape.css"  media="all and (orientation:landscape)" rel="stylesheet" type="text/css">
+<link href ="portrait.css"  media="all and (orientation:portrait)" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="wrapper">
+<div id ="banner">
+<h1> The Original Fighting Robots!</h1>
+<img src="img/Logo.png" id="logo">
+</div>
+
+
+<div id ="device">
+<img src="img/blue_head.png" id="head">
+<audio id="sound5"><source src="audio/clank.mp3" type="audio/mp3"></audio>
+
+
+<img src="img/button_r_1.png" id="b1">
+<audio id="sound1"><source src="audio/click.mp3" type="audio/mp3"></audio>
+
+<img src="img/button_r_2.png" id="b2">
+<audio id="sound2"><source src="audio/click.mp3" type="audio/mp3"></audio>
+
+<img src="img/button_b_2.png" id="b3">
+<audio id="sound3"><source src="audio/click.mp3" type="audio/mp3"></audio>
+
+<img src="img/button_b_1.png" id="b4">
+<audio id="sound4"><source src="audio/click.mp3" type="audio/mp3"></audio>
+
+<img src="img/Rock_Base.png"" id="robot">
+
+<img src= "img/blue_arm.png" id="bluea">
+
+<img src="img/red_arm.png" id="reda">
+
+<img src="img/blue_arm_out.png" id="blueout">
+
+<img src="img/red_arm_out.png" id="redout">
+
+<div class="f1">
+    <p> Rock &#39;Em Sock &#39;Em Robots is a two-player game developed by Marvin Glass and associates( who also developed the Lite Brite and other games including Operation, Mouse Trap, and Simon) and manufactured by the Marx toy company in its original form(Mattel would manufacturer future versions of the toy). The toy would hit store shelves in 1964. </p>
+</div>
+
+<div class="f2">
+    <p>In Rock &#39;Em Sock &#39;Em Robots, players are tasked with knocking their &quot;block off. The game is controlled by the grips on the edge of the arena, which is moveable and controls the location and direction of the player in the ring. The buttons on the grip correspond to one of the robot's hands. The winner is crowned after five rounds of play or whoever&#39;s robot head pops off first. </p>
+</div>
+
+<div class="f3">
+    <p>The concept for Rock &#39;Em Sock &#39;Em Robots originally involved two human boxers made of metal that would fall apart when a player managed to hit the button on the opponent&#39;s chin. The project shifted to robots after the death of boxer Davey Moore in 1963. </p>
+</div>
+
+<div class="f4">
+    <p> In 2021, it was announced that Mattel would be partnering with Universal Pictures to produce a live action movie based upon the toy. Vin Diesel is the only actor currently attached to the project. </p>
+</div>
+
+<div class="f5">
+    <p> The game focuses on the bout between two robots from outer space. The box of the toy provides details surrounding the robots including their names and weigh ins, The red robot is named &quot;The Rollicking Red Rocker&quot;, hails from the planet Soltaras II, and weighs in at 375 lbs. The blue robot robot is named &quot;The Beautiful Blue Bomber&quot;, hails from the planet of Umgluck, and weighs in at 382 lbs. </p>
+</div>
+
+</div> <!-- close content div-->
+</div> <!-- close wrapper div-->
+
+<script>
+$('#pause').click(function() {
+    $('#sound1').trigger("pause").prop("currentTime",0);
+    $('#sound2').trigger("pause").prop("currentTime",0);
+    $('#sound3').trigger("pause").prop("currentTime",0);
+    $('#sound4').trigger("pause").prop("currentTime",0);
+    $('#sound5').trigger("pause").prop("currentTime",0);
+});
+
+$('#b1').click(function() {
+    $('.f1').show();
+        $('.f2').hide();
+        $('.f3').hide();
+        $('.f4').hide();
+        $('.f5').hide();
+    $('#sound1').trigger("play");
+    $('#sound2').trigger("pause").prop("currentTime",0);
+    $('#sound3').trigger("pause").prop("currentTime",0);
+    $('#sound4').trigger("pause").prop("currentTime",0);
+    $('#sound5').trigger("pause").prop("currentTime",0);
+});
+
+$('#b2').click(function() {
+    $('.f2').show();
+        $('.f1').hide();
+        $('.f3').hide();
+        $('.f4').hide();
+        $('.f5').hide();
+    $('#sound2').trigger("play");
+    $('#sound1').trigger("pause").prop("currentTime",0);
+    $('#sound3').trigger("pause").prop("currentTime",0);
+    $('#sound4').trigger("pause").prop("currentTime",0);
+    $('#sound5').trigger("pause").prop("currentTime",0);
+});
+
+$('#b3').click(function() {
+    $('.f3').show();
+        $('.f1').hide();
+        $('.f2').hide();
+        $('.f4').hide();
+        $('.f5').hide();
+    $('#sound3').trigger("play");
+    $('#sound1').trigger("pause").prop("currentTime",0);
+    $('#sound2').trigger("pause").prop("currentTime",0);
+    $('#sound4').trigger("pause").prop("currentTime",0);
+    $('#sound5').trigger("pause").prop("currentTime",0);
+});
+
+$('#b4').click(function() {
+    $('.f4').show();
+        $('.f1').hide();
+        $('.f2').hide();
+        $('.f3').hide();
+        $('.f5').hide();
+    $('#sound4').trigger("play");
+    $('#sound1').trigger("pause").prop("currentTime",0);
+    $('#sound2').trigger("pause").prop("currentTime",0);
+    $('#sound3').trigger("pause").prop("currentTime",0);
+    $('#sound5').trigger("pause").prop("currentTime",0);
+});
+
+$('#head').click(function() {
+    $('.f5').show();
+        $('.f1').hide();
+        $('.f2').hide();
+        $('.f3').hide();
+        $('.f4').hide();
+    $('#sound5').trigger("play");
+    $('#sound1').trigger("pause").prop("currentTime",0);
+    $('#sound2').trigger("pause").prop("currentTime",0);
+    $('#sound3').trigger("pause").prop("currentTime",0);
+    $('#sound4').trigger("pause").prop("currentTime",0);
+});
+
+</script>
+</body>
+</html>

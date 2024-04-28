@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Blackjack Game</title>
+   <link href ="style.css" rel="stylesheet" type="text/css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <div id="wrapper">
+    <h1>BLACKJACK</h1>
+    <h3 id="line1"> The objective of the game is to get as </h3>
+    <h3 id="line2"> close to 21 as possible, if you are feeling</h3>
+    <h3 id="line3"> confident in your hand you can click stand</h3>
+    <h3 id="line4"> and see how you fare against the dealer!</h3>
+    <h3 id="line5"> Each card has an associated value, face cards</h3>
+    <h3 id="line6"> &#x28; Kings, Queens, and Jacks are worth ten &#x29; and</h3>
+    <h3 id="line7"> Aces can be worth eleven or one</h3>
+   <canvas id="blackjackCanvas" width="800" height="600"></canvas>
+   <button id="drawCardButton">Draw Card</button>
+   <button id="standButton">Stand</button>
+   <button id="restartButton">Restart Game</button>
+   <img src="img/Spades_outline.png" id="Spades">
+   <img src="img/Clubs_outline.png" id="Clubs">
+   <img src="img/Hearts_outline.png" id="Hearts">
+   <img src="img/Diamonds_outline.png" id="Diamonds">
+    </div> <!-- close wrapper div-->
+
+
+   <script>
+       const canvas = document.getElementById("blackjackCanvas");
+       const ctx = canvas.getContext("2d");
+
+
+       const CARD_WIDTH = 120;
+       const CARD_HEIGHT = 180;
+       const CARD_IMAGES = {
+           "2": "img/2.jpg",
+           "3": "img/3.jpg",
+           "4": "img/4.jpg",
+           "5": "img/5.jpg",
+           "6": "img/6.jpg",
+           "7": "img/7.jpg",
+           "8": "img/8.jpg",
+           "9": "img/9.jpg",
+           "10": "img/10.jpg",
+           "J": "img/jack.jpg",
+           "Q": "img/Queen.jpg",
+           "K": "img/King.jpg",
+           "A": "img/ace.jpg"
+       };
+
+
+       const DECK = [
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A",
+           "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
+       ];
+
+
+       let playerHand = [];
+       let dealerHand = [];
+       let playerScore = 0;
+       let dealerScore = 0;
+       let gameOver = false;
+
+
+       function drawCard(x, y, value) {
+           const image = new Image();
+           image.src = CARD_IMAGES[value];
+           image.onload = function () {
+               ctx.drawImage(image, x, y, CARD_WIDTH, CARD_HEIGHT);
+           };
+       }
+
+
+       function shuffleDeck(deck) {
+           for (let i = deck.length - 1; i > 0; i--) {
+               const j = Math.floor(Math.random() * (i + 1));
+               [deck[i], deck[j]] = [deck[j], deck[i]];
+           }
+           return deck;
+       }
+
+
+       function dealCard(hand) {
+           hand.push(DECK.pop());
+       }
+
+
+       function calculateScore(hand) {
+           let score = 0;
+           let aceCount = 0;
+           for (let card of hand) {
+               if (card === "A") {
+                   score += 11;
+                   aceCount++;
+               } else if (["J", "Q", "K"].includes(card)) {
+                   score += 10;
+               } else {
+                   score += parseInt(card);
+               }
+           }
+           while (score > 21 && aceCount > 0) {
+               score -= 10;
+               aceCount--;
+           }
+           return score;
+       }
+
+
+       function drawHand(hand, startY) {
+           const cardWidth = 120;
+           let startX = (canvas.width - hand.length * cardWidth) / 2;
+
+
+           for (let card of hand) {
+               drawCard(startX, startY, card);
+               startX += cardWidth;
+           }
+       }
+
+
+       function drawGame() {
+           ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+           // Draw player's hand
+           drawHand(playerHand, canvas.height - CARD_HEIGHT - 25);
+
+
+           // Draw dealer's hand
+           drawHand(dealerHand, 25);
+
+
+           // Display scores
+           ctx.font = "20px Arbutus Slab";
+           ctx.fillStyle = "white";
+           ctx.fillText(`Player Score: ${playerScore}`, 100, 380);
+
+
+           // Check if game is over
+           if (gameOver) {
+               ctx.font = "30px Arbutus Slab";
+               ctx.fillStyle = "white";
+               ctx.fillText(`Player Score: ${playerScore}`, 283, 375);
+               ctx.fillText(`Dealer Score: ${dealerScore}`, 283, 250);
+           }
+       }
+
+
+       function checkGameOver() {
+           if (playerScore > 21) {
+               displayResult("Dealer wins - Player busts!");
+               gameOver = true;
+               determineGameOutcome();
+           } else if (dealerScore >= 17) {
+               gameOver = true;
+               determineGameOutcome();
+           }
+       }
+
+
+       function restartGame() {
+           playerHand = [];
+           dealerHand = [];
+           playerScore = 0;
+           dealerScore = 0;
+           gameOver = false;
+
+
+           shuffleDeck(DECK);
+           dealCard(playerHand);
+           dealCard(playerHand);
+
+
+           playerScore = calculateScore(playerHand);
+           drawGame();
+       }
+
+
+       function dealerTurn() {
+           dealCard(dealerHand);
+           dealerScore = calculateScore(dealerHand);
+           drawGame();
+
+
+           while (dealerScore < 17) {
+               dealCard(dealerHand);
+               dealerScore = calculateScore(dealerHand);
+               drawGame();
+           }
+
+
+           determineGameOutcome();
+       }
+
+
+       function determineGameOutcome() {
+           if (playerScore > 21) {
+               displayResult("Dealer wins - Player busts!");
+           } else if (dealerScore > 21) {
+               displayResult("Player wins - Dealer busts!");
+           } else if (playerScore === dealerScore) {
+               displayResult("It's a draw!");
+           } else if (playerScore > dealerScore) {
+               displayResult("Player wins!");
+           } else {
+               displayResult("Dealer wins!");
+           }
+       }
+
+
+       function displayResult(message) {
+           ctx.font = "30px Arbutus Slab";
+           ctx.fillStyle = "white";
+           const textWidth = ctx.measureText(message).width;
+           const textHeight = 30;
+           const centerX = (ctx.canvas.width - textWidth) / 2;
+           const centerY = (ctx.canvas.height - textHeight) / 2;
+    
+           ctx.fillText(message, centerX, 310);
+           ctx.fillText(`Player Score: ${playerScore}`, 283, 375);
+           ctx.fillText(`Dealer Score: ${dealerScore}`, 283, 250);
+       }
+
+
+       document.getElementById("drawCardButton").addEventListener("click", function () {
+           if (!gameOver) {
+               dealCard(playerHand);
+               playerScore = calculateScore(playerHand);
+               drawGame();
+               checkGameOver();
+           }
+       });
+
+
+       document.getElementById("standButton").addEventListener("click", function () {
+           if (!gameOver && playerHand.length > 1) {
+               gameOver = true;
+               dealerTurn();
+           }
+       });
+
+
+       document.getElementById("restartButton").addEventListener("click", function () {
+           restartGame();
+       });
+
+
+       restartGame(); // Start the game
+   </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

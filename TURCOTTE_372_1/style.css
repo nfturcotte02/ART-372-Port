@@ -1,0 +1,127 @@
+h1 {
+    font-family: "Rampart One", sans-serif;
+    font-size: 60px;
+    color:black;
+}
+h2 {
+    font-family: "Rampart One", sans-serif;
+    font-size: 30px;
+    color:black;
+    position: absolute;
+    top: 55px;
+    left: 400px;
+}
+hr {
+    position:absolute;
+    border: 3px solid black;
+    border-width: 2px;
+    border-radius: 30px;
+    width: 90%;
+    margin-bottom: 30px;
+    top: 120px;
+    left: 50px;
+}
+#wrapper {
+    width:1000px;
+    height:auto;
+    position:relative;
+}
+body {
+    background-color:cornsilk;
+}
+p {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+}
+#image1 {
+    position:absolute;
+    border: 6px solid black;
+    top:150px;
+    left:100px;
+}
+#para1 {
+    position:absolute;
+    top:260px;
+    left:550px;
+}
+#image2 {
+    position:absolute;
+    border: 6px solid black;
+    top: 615px;
+    left: 600px; 
+}
+#para2 {
+    position:absolute;
+    top:725px;
+    right:450px;
+    left: 90px;
+}
+#image3 {
+    position: absolute;
+    border: 6px solid black;
+    top:1100px;
+    left:100px;
+}
+#para3 {
+    position:absolute;
+    top:1100px;
+    left:550px;
+}
+#image4 {
+    position: absolute;
+    border: 6px solid black;
+    top:1585px;
+    left:600px;
+}
+#para4 {
+    position:absolute;
+    top:1725px;
+    right:450px;
+    left: 90px;
+}
+#image5 {
+    position: absolute;
+    border: 6px solid black;
+    top:2070px;
+    left:100px;
+}
+#para5 {
+    position:absolute;
+    top:2150px;
+    left:550px;
+}
+#image6 {
+    position: absolute;
+    border: 6px solid black;
+    top:2555px;
+    left:600px;
+}
+#para6 {
+    position:absolute;
+    top:2600px;
+    right:450px;
+    left: 90px;
+}
+#image7 {
+    position: absolute;
+    border: 6px solid black;
+    top:3040px;
+    left:100px;
+}
+#para7 {
+    position:absolute;
+    top:3175px;
+    left:550px;
+}
+#image8 {
+    position: absolute;
+    border: 6px solid black;
+    top:3525px;
+    left:600px;
+}
+#para8 {
+    position:absolute;
+    top:3550px;
+    right:450px;
+    left: 90px;
+}

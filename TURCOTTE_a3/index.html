@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <head>
+        <title>Pinata Hitter</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+
+        <div id="gameboard" onmousedown="document.getElementById('sound').play();">
+            <audio id="sound">
+                <source src="audio/swing.wav" type="audio/wav">
+            </audio>
+
+            <img src="img/L_Pinata.png" id="object1" onmouseover="document.getElementById('sound1').play();"onmousedown="increaseLCounter(this)">
+            <audio id="sound1">
+                <source src="audio/llama_sound.wav" type="audio/wav">
+            </audio>
+
+            <img src="img/C_Pinata.png" id="object2" onmouseover="document.getElementById('sound2').play();"onmousedown="increaseCCounter(this)">
+            <audio id="sound2">
+                <source src="audio/Arriba.mp3">
+            </audio>
+
+            <img src="img/Beehive.png" id="object3" onmouseover="document.getElementById('sound3').play();"onclick="clickCounter()">
+            <audio id="sound3">
+                <source src="audio/bee_sound.mp3">
+            </audio>
+
+            <img src="img/tree.png" id="boxes">
+
+
+        </div>
+
+        <div id="endScreen">
+            `
+        </div>
+
+        <div class="arrow-left">
+
+        </div>
+        
+        <div class="arrow-right">
+
+        </div>
+
+        <div class="arrow-left2">
+
+        </div>
+
+        <div class="arrow-right2">
+
+        </div>
+        
+        <div class="dot">
+
+        </div>
+        
+
+        <div id="score" onmouseover="document.getElementById('sound4').play();" onclick="beginGame(), timer()" >
+            <audio id="sound4">
+                <source src="audio/soundscape.mp3" type="audio/mp3">
+            </audio>
+            <h3>Whack the Pinatas to collect candy! Click Here to Start.</h3>
+            <h2>Candies:&nbsp;<span id="result"></span></h2>
+        </div>
+
+        <div id="Timer">
+            <h3>Time Remaining:</h3>
+            <p id="timerDisplay">01:00</p>
+        </div>
+
+
+        <div id="endScreen">
+            `
+        </div>
+            
+
+        <script>
+
+            var lClickNumber = 1;
+            var cClickNumber = 1;
+
+            // This functions begins the game by setting the point value to 0 and setting the playstates of the objects to running
+            function beginGame() {
+                localStorage.clear();
+                localStorage.points = 0;
+                localStorage.sec = 59;
+                document.getElementById("result").innerHTML = localStorage.points;
+                document.getElementById("object1").style.webkitAnimationPlayState = "running";
+                document.getElementById("object2").style.webkitAnimationPlayState = "running";
+                document.getElementById("object3").style.webkitAnimationPlayState = "running";
+            }
+            function clickCounter() {
+                localStorage.points = Number(localStorage.points) - 25;
+                document.getElementById("result").innerHTML = localStorage.points;
+            }
+             // This function increase the click counter for the llama object(object1), after two clicks the objects awards 50 points and resets the animation path of the object
+            function increaseLCounter(element) {
+                if(lClickNumber < 3) {
+                    lClickNumber = lClickNumber + 1;
+                    document.getElementById('object1').src = "img/L_Damaged.png"
+                }
+                if(lClickNumber >= 3 ) {
+                    lClickNumber = 1;
+                    document.getElementById('object1').src = "img/L_Pinata.png"
+                    localStorage.points = Number(localStorage.points) + 50;
+                    document.getElementById("result").innerHTML = localStorage.points;
+                    // changes the animation path, to create the illusion of a reset the animation path is changed to a different path that is exactly the same 
+                    if (element) {
+                    const currentAnimation = element.style.animationName;
+                    element.style.animationName = currentAnimation === 'lpath' ? 'lpath2' : 'lpath'
+                }
+                }
+            }
+            // This function increase the click counter for the cactus object(object2), after two clicks the objects awards 25 points and resets the animation path of the object
+            function increaseCCounter(element) {
+                if(cClickNumber < 3) {
+                    cClickNumber = cClickNumber + 1;
+                    document.getElementById('object2').src = "img/C_Damage.png"
+                }
+                if(cClickNumber >= 3 ) {
+                    cClickNumber = 1;
+                    document.getElementById('object2').src = "img/C_Pinata.png"
+                    localStorage.points = Number(localStorage.points) + 25;
+                    document.getElementById("result").innerHTML = localStorage.points;
+                    // changes the animation path, to create the illusion of a reset the animation path is changed to a different path that is exactly the same 
+                    if (element) {
+                    const currentAnimation = element.style.animationName;
+                    element.style.animationName = currentAnimation === 'cpath' ? 'cpath2' : 'cpath' 
+                }
+                }
+            }
+            // Timer function to display the end screen after the varible sec equals 0
+            function timer(){
+                var sec = 59;
+                var timer = setInterval(function(){
+                document.getElementById('timerDisplay').innerHTML='00:'+sec;
+                sec--;
+                if (sec < 0) {
+                    clearInterval(timer);
+                    gameOver();
+                }
+                }, 1000);
+            }
+            // function that enables the end screen
+            function gameOver(){
+                document.getElementById("endScreen").style.display='block';
+            }
+
+        </script>
+    </body>
+
+    </html>

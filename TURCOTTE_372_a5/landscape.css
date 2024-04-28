@@ -1,0 +1,314 @@
+#banner {
+width: 100%;
+height: 120px;
+position: relative;
+padding: 10px;
+background-color: #cc2130;
+}
+
+#logo {
+    position: absolute;
+    top:-6px;
+}
+
+body{
+    background-color: #f3de2f;
+}
+
+#head{
+    position:absolute;
+    top:10px;
+    left:495px;
+    animation-name: key5;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#head:hover{
+    scale:1.1;
+}
+
+#device {
+background-image: url();
+background-repeat: no-repeat;
+width: 100%;
+height: 700px;
+position: relative;
+background-color: #f3de2f;
+overflow:hidden;
+}
+
+#robot {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    clip-path: polygon(7% 70%, 7% 67%, 1% 59%, 1% 31%, 15% 26%, 31% 1%, 39% 0, 64% 10%, 83% 30%, 85% 50%, 86% 64%, 87% 51%, 94% 51%, 94% 46%, 99% 45%, 98% 100%, 5% 100%  );
+}
+
+#redout {
+    position: absolute;
+    top: 90px;
+    left: 280px;
+    animation-name: redmovement2;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#blueout {
+    position:absolute;
+    top: 98px;
+    left: 405px;
+    animation-name: bluemovement2;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#b1 {
+    position: absolute;
+    top: 120px;
+    left: 92px;
+    animation-name: key1;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;   
+}
+
+#b1:hover {
+    scale: 1.2;
+}
+
+#b2 {
+    position: absolute;
+    top: 155px;
+    left: 9px;
+    animation-name: key2;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#b2:hover {
+    scale: 1.2;
+}
+
+#b3 {
+    position: absolute;
+    top: 240px;
+    left: 850px;
+    animation-name: key3;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#b3:hover {
+    scale: 1.2;
+}
+
+#b4 {
+    position: absolute;
+    top: 275px;
+    left: 795px;
+    animation-name: key4;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    scale:1.0;
+}
+#b4:hover {
+  scale: 1.2;
+}
+
+
+#bluea {
+    position: absolute;
+    top:105px;
+    left:425px; 
+    animation-name: bluemovement;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#reda {
+    position: absolute;
+    top:97px;
+    left:278px;
+    animation-name: redmovement;
+    animation-play-state: running;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes key1 {
+    0% {margin-left: 0px; margin-top:0px;}
+    10% {margin-top:30px;}
+    15% {margin-top:20px;}
+}
+
+@keyframes key2 {
+    0% {margin-left: 0px; margin-top:0px;}
+    20% {margin-left: 0px; margin-top:0px;}
+    25% {margin-top:30px;}
+    30% {margin-top:20px;}
+    70% {margin-left: 0px; margin-top:0px;}
+    74% {margin-left: 0px; margin-top:0px;}
+    75% {margin-top:30px;}
+    80% {margin-top:20px;}
+    81% {margin-left: 0px; margin-top:0px;}
+}
+
+@keyframes key3 {
+    0% {margin-left: 0px; margin-top:0px;}
+    45% {margin-top:30px;}
+    50% {margin-top:20px;}
+}
+
+@keyframes key4 {
+    0% {margin-left: 0px; margin-top:0px;}
+    60% {margin-left: 0px; margin-top:0px;}
+    65% {margin-top:30px;}
+    70% {margin-top:20px;}
+}
+
+@keyframes key5 {
+    0% {margin-left: 0px; margin-top: 0px;}
+    78% {margin-left: 0px; margin-top: 0px;}
+    79% {margin-top: -20px;}
+    90% {margin-top: -20px;}
+    100% {margin-left: 0px; margin-top: 0px;}
+}
+
+@keyframes redmovement {
+    0% {opacity: 1;}
+    24% {opacity: 1;}
+    25% {opacity:0;}
+    30% {opacity:0;}
+    31% {opacity:1;}
+    74% {opacity:1;}
+    75% {opacity:0;}
+    80% {opacity:0;}
+    81% {opacity:1;}
+    100% {opacity:1;}
+}
+
+@keyframes bluemovement {
+    0% {opacity: 1;}
+    64% {opacity: 1;}
+    65% {opacity:0;}
+    70% {opacity:0;}
+    71% {opacity:1;}
+    100% {opacity:1;}
+
+}
+
+@keyframes redmovement2 {
+    0% {opacity: 0;}
+    24% {opacity: 0;}
+    25% {opacity: 1;}
+    30% {opacity: 1;}
+    31% {opacity: 0;}
+    74% {opacity:0;}
+    75% {opacity:1;}
+    80% {opacity:1;}
+    81% {opacity:0;}
+    100% {opacity:0;}
+   
+}
+
+@keyframes bluemovement2 {
+    0% {opacity: 0;}
+    64% {opacity: 0;}
+    65% {opacity:1;}
+    70% {opacity:1;}
+    71% {opacity:0;}
+    100% {opacity:0;}
+
+}
+
+.f1 {
+    width: 250px;
+    height: 80px;
+    top: 275px;
+    left: 1000px;
+    padding: 50px;
+    background: #cc2130;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+    
+
+.f2 {
+    width: 250px;
+    height: 90px;
+    top: 275px;
+    left: 1000px;
+    padding: 50px;
+    background: #cc2130;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+
+.f3 {
+    width: 250px;
+    height: 50px;
+    top: 275px;
+    left: 1000px;
+    padding: 50px;
+    background: #cc2130;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+
+.f4 {
+    width: 250px;
+    height: 30px;
+    top: 275px;
+    left: 1000px;
+    padding: 50px;
+    background: #cc2130;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+
+.f5 {
+    width: 250px;
+    height: 85px;
+    top: 275px;
+    left: 1000px;
+    padding: 50px;
+    background: #cc2130;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 12px;
+    display: none;
+}
+
+h1 {
+    position: absolute;
+    left: 300px;
+    top:15px;
+    font-size: 45px;
+    font-family: "Bruno Ace SC", sans-serif;
+    color: white;
+    white-space: nowrap;  
+}
+
+p {
+    position: relative;
+    top:-40px;
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
